@@ -21,7 +21,6 @@ class ChessBoard: UIView {
         CGContextSetLineWidth(context, 2)
         let lineLengh = self.bounds.width
         lineSpace = lineLengh/16
-        print(lineSpace)
         CGContextSetStrokeColorWithColor(context, UIColor.blueColor().CGColor)
         for(var i = 1;i <= 15;i = i + 1){
             CGContextMoveToPoint(context, 0, CGFloat(i) * lineSpace)
@@ -40,15 +39,12 @@ class ChessBoard: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clearColor()
-        self.multipleTouchEnabled = false
         setNeedsDisplay()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
 
 }
