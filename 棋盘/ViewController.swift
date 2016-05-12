@@ -18,7 +18,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate{
         chessBoard = ChessBoard(frame: CGRectMake(40,100,bounds.width - 80,bounds.width - 80))
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.numberOfTapsRequired = 1
-        tapGestureRecognizer.addTarget(chessBoard ,action: "chessPutted:")
+        tapGestureRecognizer.addTarget(self ,action: "chessPutted:")
         chessBoard.addGestureRecognizer(tapGestureRecognizer)
         view.addSubview(chessBoard)
         lineSpace = chessBoard.frame.width/16
@@ -31,11 +31,11 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate{
         startButton.layer.cornerRadius = 10
         
         startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpInside)
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchDown)
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchDownRepeat)
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpOutside)
-        startButton.addTarget(self, action: "initGame", forControlEvents: .ValueChanged)
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchCancel)
+//        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchDown)
+//        startButton.addTarget(self, acti/on: "initGame", forControlEvents: .TouchDownRepeat)
+//        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpOutside)
+//        startButton.addTarget(self, action: "initGame", forControlEvents: .ValueChanged)
+//        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchCancel)
         view.addSubview(startButton)
     }
 
@@ -53,46 +53,42 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate{
     var currentChessView:UIView!
     var currentStep:UILabel!
     
-    func drawView(){
-        let bounds = self.view.bounds
-        //棋盘
-        chessBoard = ChessBoard(frame: CGRectMake(40,100,bounds.width - 80,bounds.width - 80))
-        let tapGestureRecognizer = UITapGestureRecognizer()
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        tapGestureRecognizer.addTarget(self, action: "chessPutted:")
-        chessBoard.addGestureRecognizer(tapGestureRecognizer)
-        view.addSubview(chessBoard)
-        lineSpace = chessBoard.frame.width/16
-        let boardOrigin = CGPointMake(40, 100)
-        chessOrigin = CGPointMake(boardOrigin.x - lineSpace/2, boardOrigin.y - lineSpace/2)
-        startButton = UIButton(frame: CGRectMake(120,chessBoard.frame.origin.y + chessBoard.frame.width + 40,bounds.width - 240,80))
-        startButton.backgroundColor = .blueColor()
-        startButton.setTitle("开始游戏", forState: .Normal)
-        startButton.titleLabel?.font = UIFont.systemFontOfSize(40)
-        startButton.layer.cornerRadius = 10
-        
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpInside)
-        view.addSubview(startButton)
-    }
+//    func drawView(){
+//        let bounds = self.view.bounds
+//        //棋盘
+//        chessBoard = ChessBoard(frame: CGRectMake(40,100,bounds.width - 80,bounds.width - 80))
+//        let tapGestureRecognizer = UITapGestureRecognizer()
+//        tapGestureRecognizer.numberOfTapsRequired = 1
+//        tapGestureRecognizer.addTarget(self, action: "chessPutted:")
+//        chessBoard.addGestureRecognizer(tapGestureRecognizer)
+//        view.addSubview(chessBoard)
+//        lineSpace = chessBoard.frame.width/16
+//        let boardOrigin = CGPointMake(40, 100)
+//        chessOrigin = CGPointMake(boardOrigin.x - lineSpace/2, boardOrigin.y - lineSpace/2)
+//        startButton = UIButton(frame: CGRectMake(120,chessBoard.frame.origin.y + chessBoard.frame.width + 40,bounds.width - 240,80))
+//        startButton.backgroundColor = .blueColor()
+//        startButton.setTitle("开始游戏", forState: .Normal)
+//        startButton.titleLabel?.font = UIFont.systemFontOfSize(40)
+//        startButton.layer.cornerRadius = 10
+//        
+//        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpInside)
+//        view.addSubview(startButton)
+//    }
+    
     
     func initGame(){
         print("----")
-        print(chessBoard.isAccessibilityElement)
-//        let bounds = self.view.bounds
-        print(chessBoard.gestureRecognizers?.first?.isProxy())
-        startButton.addTarget(self, action: "initGame", forControlEvents: .TouchUpInside)
-        self.view.addSubview(startButton)
-        chesses = []
-        var chessColumn:[ChessColor] = []
-        for (var i = 0;i <= 16;i = i + 1){
-            chessColumn.append(.blank)
-        }
-        chessPad = []
-        for (var i = 0;i <= 16;i = i + 1){
-            chessPad.append(chessColumn)
-        }
-        isInGame = true
-        
+//        chesses = []
+//        var chessColumn:[ChessColor] = []
+//        for (var i = 0;i <= 16;i = i + 1){
+//            chessColumn.append(.blank)
+//        }
+//        chessPad = []
+//        for (var i = 0;i <= 16;i = i + 1){
+//            chessPad.append(chessColumn)
+//        }
+//        isInGame = true
+
     }
     
     func chessPutted(sender:UITapGestureRecognizer){
